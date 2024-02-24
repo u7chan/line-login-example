@@ -1,9 +1,20 @@
 'use client'
 import { signIn } from 'next-auth/react'
+import { LineButton } from './line-button'
 
 export function SignIn() {
   const handleClick = () => {
     signIn('line', { callbackUrl: '/', redirect: true })
   }
-  return <button onClick={handleClick}>Sign in with LINE</button>
+  return (
+    <div
+      style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
+      <LineButton onClick={handleClick} />
+    </div>
+  )
 }
