@@ -16,4 +16,22 @@ export const authOptions: AuthOptions = {
       clientSecret: process.env.LINE_CLIENT_SECRET || '',
     }),
   ],
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        token.id = user.id
+        token.email = user.email
+      }
+      return token
+    },
+    session({ session, token }) {
+      if (session.user) {
+        session.user = {
+          id: token.id,
+          ...session.user,
+        } as never
+      }
+      return session
+    },
+  },
 }
