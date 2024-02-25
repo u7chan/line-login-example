@@ -1,5 +1,7 @@
 # line-login-example
 
+<img src='./preview.png' width="70%"/>
+
 ## Architectures
 
 - [Bun](https://bun.sh/)
