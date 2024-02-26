@@ -47,6 +47,9 @@ export const authOptions: AuthOptions = {
     LineProvider({
       clientId: process.env.LINE_CLIENT_ID || '',
       clientSecret: process.env.LINE_CLIENT_SECRET || '',
+      authorization: {
+        params: { scope: 'openid profile email' },
+      },
     }),
   ],
   callbacks: {
